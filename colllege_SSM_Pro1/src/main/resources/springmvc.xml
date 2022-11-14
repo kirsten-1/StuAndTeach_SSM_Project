@@ -22,23 +22,23 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
 ">
 
+    <!--    控制器扫描配置-->
+    <context:component-scan base-package="com.bones" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
-    <!--    扫描-->
-    <context:component-scan base-package="com.bones.controller"/>
-    <!--    配置Spring MVC的三大组件-->
-    <mvc:annotation-driven/>
-    <!--    视图解析器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-            <property name="prefix" value="/WEB-INF/view/"/>
-            <property name="suffix" value=".jsp"/>
+    <!--    视图解析器配置-->
+    <bean id="resourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--配置静态资源放行-->
-<!--    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>-->
-<!--    <mvc:resources mapping="/fonts/**" location="/fonts/"></mvc:resources>-->
-<!--    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>-->
-<!--    <mvc:resources mapping="/img/**" location="/img/"></mvc:resources>-->
-    <!--<mvc:resources mapping="/static/**" location="/static/"></mvc:resources>-->
+    <!--    两个标准配置-->
+    <mvc:default-servlet-handler/>
+    <mvc:annotation-driven/>
+
+
+
 
 
 </beans>

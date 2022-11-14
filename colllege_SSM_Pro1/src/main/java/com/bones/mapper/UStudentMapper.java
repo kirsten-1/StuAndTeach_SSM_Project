@@ -1,9 +1,12 @@
-package com.example.experiment2.dao;
+package com.bones.mapper;
 
-import com.example.experiment2.bean.UStudent;
-import com.example.experiment2.bean.UStudentExample;
-import java.util.List;
+
+
+import com.bones.pojo.UStudent;
+import com.bones.pojo.UStudentExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UStudentMapper {
     long countByExample(UStudentExample example);

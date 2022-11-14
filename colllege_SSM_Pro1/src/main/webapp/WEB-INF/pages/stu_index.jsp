@@ -24,6 +24,7 @@
                 <li class="active"><a href="javascript:;" id="trainingPrograms">培养方案 <span class="sr-only">(current)</span></a></li>
                 <li><a href="javascript:;" id="stuCurriculum">选课管理</a></li>
                 <li><a href="javascript:;" id="gradeView">成绩查询</a></li>
+                <li><a href="javascript:;" id="onlineTest">在线测试</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a>当前用户：${sessionScope.user.id} ${sessionScope.user.studentName}</a></li>
@@ -107,7 +108,35 @@
         </div>
     </div>
 </div>
+<%--在线测试--%>
+<div class="container-fluid hide_this" id="onlineTestIndex">
+    <div class="row">
+        <div class="col-md-2">
+            <!-- Single button -->
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    选择要考试的科目 <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" id="chooseTest">
+                    <li><a href="#">javaSE</a></li>
+                    <li><a href="#">javaEE</a></li>
+                    <li><a href="#">Mybatis</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">心理素质健康</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2" id="showCourseInfo"></div>
+        <div class="col-md-8" id="testContent">
+
+
+        </div>
+    </div>
+</div>
+
+
 <script>
+
 
     let ID = "${sessionScope.user.id}"
     let major = "${sessionScope.user.major}";
@@ -115,6 +144,8 @@
     $(function (){
         getTrainingProgram(major);
     });
+
+
 
     //获取培养方案
     function getTrainingProgram(major){
@@ -190,6 +221,8 @@
             getCourse("courses",ID);
         }else if(select_id == "#gradeViewIndex"){
             getGrade(ID);
+        }else if(select_id == "#onlineTestIndex"){
+            getOnlineTest();
         }
         $(".container-fluid").removeClass("show");
         $(select_id).addClass("show");
@@ -278,6 +311,83 @@
             }
         });
     }
+
+    // 在线测试
+    function getOnlineTest(){
+        console.log()
+    }
+
+    $("#onlineTestIndex #chooseTest li").click(function(){
+        let courseTag = this.innerHTML;
+        coursenameStr = courseTag.slice(courseTag.indexOf(">")+1,courseTag.lastIndexOf("<"));
+        //$("#showCourseInfo")[0].innerHTML = coursenameStr;
+        let showCourseInfo = $("#showCourseInfo")[0];
+        $.ajax({
+            url: "${APP_PATH}/getTestInfo",
+            type: "POST",
+            data:{coursename:coursenameStr},
+            success: function (result){
+                showCourseInfo.innerHTML = "";
+                showCourseInfo.innerHTML += "课程信息："
+                showCourseInfo.innerHTML += result.courseName+","+result.courseNature+","+result.courseStatus
+                testStart(result.id)
+            }
+        });
+    })
+
+    let submitBtn = " <button type=\"button\" class=\"btn btn-success\" id=\"submitBtn\" >提交</button>"
+    function testStart(courseid){
+        let i = 0;//题号
+        $.ajax({
+            url:"${APP_PATH}/getTestContent",
+            type:"POST",
+            data:{courseid:courseid},
+            success:function(res){
+                $.each(res, function (){
+                    i++;
+                    let question = $("<td></td>").append("<div class=\"panel panel-default\"> <div class=\"panel-body\"><span class=\"glyphicon glyphicon-forward\" aria-hidden=\"true\"></span>第"+i+"题<code>"+this.question+"</code>   </div> </div>");
+                    let choicea = "<div class=\"panel panel-warning\"><label> <input type=\"radio\" name=\"optionsRadios"+i+"\" id=\"optionsRadios1\" value=\"option1\" >"+this.choicea+"</label></div>";
+                    let choiceb = "<div class=\"panel panel-warning\"><label> <input type=\"radio\" name=\"optionsRadios"+i+"\" id=\"optionsRadios1\" value=\"option2\" >"+this.choiceb+"</label></div>";
+                    $("<tr></tr>").append(question).appendTo("#testContent");
+                    $("<tr></tr>").append(choicea).appendTo("#testContent");
+                    $("<tr></tr>").append(choiceb).appendTo("#testContent");
+
+
+                });
+
+                $("<tr></tr>").append(submitBtn).appendTo("#testContent")
+                $("#testContent #submitBtn").click(function(){//点击按钮
+                    //获取radio选中的值
+                    let arr = [];let j = 0;
+                    arr[j] = $("input[name='optionsRadios1']:checked").val();j++;
+                    arr[j] = $("input[name='optionsRadios2']:checked").val();j++;
+                    arr[j] = $("input[name='optionsRadios3']:checked").val();j++;
+                    arr[j] = $("input[name='optionsRadios4']:checked").val();j++;
+                    arr[j] = $("input[name='optionsRadios5']:checked").val();j++;
+                    console.log(arr)
+                    $.ajax({
+                        url:"${APP_PATH}/getPoint",
+                        type:"POST",
+                        data:{arr:arr,courseid:courseid},
+                        traditional: true,//防止后台接收不到参数Data
+                        success:function(res){
+                            $("<div class=\"panel panel-default\"> <div class=\"panel-heading\">总分：</div><div class=\"panel-body\"> <p>"+res.pointSum+"</p> </div>").appendTo("#testContent");
+                            $("<ul class=\"list-group\">").appendTo("#testContent");
+                            console.log(res.correctness)
+                            $.each(res.correctness,function(i,n){
+                                $("<li class=\"list-group-item\">第"+i+"题："+n+"</li>").appendTo("#testContent");
+                            })
+                            $("#testContent #submitBtn").attr("disabled",true);
+                            $("#testContent #submitBtn").html("测试已结束，不可提交");
+                            $("#testContent #submitBtn").addClass("btn-danger");
+
+                        }
+                    })
+                })
+            }
+        })
+    }
+
 
 </script>
 </body>

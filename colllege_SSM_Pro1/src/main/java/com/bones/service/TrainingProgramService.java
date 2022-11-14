@@ -1,8 +1,9 @@
-package com.example.experiment2.service;
+package com.bones.service;
 
-import com.example.experiment2.bean.TrainingProgram;
-import com.example.experiment2.bean.TrainingProgramExample;
-import com.example.experiment2.dao.TrainingProgramMapper;
+
+import com.bones.mapper.TrainingProgramMapper;
+import com.bones.pojo.TrainingProgram;
+import com.bones.pojo.TrainingProgramExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

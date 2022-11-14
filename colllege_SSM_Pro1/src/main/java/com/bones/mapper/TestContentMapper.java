@@ -2,8 +2,9 @@ package com.bones.mapper;
 
 import com.bones.pojo.TestContent;
 import com.bones.pojo.TestContentExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TestContentMapper {
     long countByExample(TestContentExample example);

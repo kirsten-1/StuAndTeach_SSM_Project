@@ -8,7 +8,7 @@
     </settings>
 
     <typeAliases>
-        <package name="com.example.experiment2.bean"/>
+        <package name="com.bones.pojo"/>
     </typeAliases>
 
     <plugins>

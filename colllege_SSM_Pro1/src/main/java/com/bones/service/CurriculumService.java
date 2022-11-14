@@ -1,8 +1,9 @@
-package com.example.experiment2.service;
+package com.bones.service;
 
-import com.example.experiment2.bean.StuCurriculum;
-import com.example.experiment2.bean.StuCurriculumExample;
-import com.example.experiment2.dao.StuCurriculumMapper;
+
+import com.bones.mapper.StuCurriculumMapper;
+import com.bones.pojo.StuCurriculum;
+import com.bones.pojo.StuCurriculumExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

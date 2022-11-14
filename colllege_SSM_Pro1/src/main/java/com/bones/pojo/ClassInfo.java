@@ -1,4 +1,4 @@
-package com.example.experiment2.bean;
+package com.bones.pojo;
 
 public class ClassInfo {
     private String className;

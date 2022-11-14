@@ -1,7 +1,18 @@
 package com.bones.pojo;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class TestContent {
     private String question;
+
+    private String choicea;
+
+    private String choiceb;
 
     private String answer;
 
@@ -15,6 +26,22 @@ public class TestContent {
 
     public void setQuestion(String question) {
         this.question = question == null ? null : question.trim();
+    }
+
+    public String getChoicea() {
+        return choicea;
+    }
+
+    public void setChoicea(String choicea) {
+        this.choicea = choicea == null ? null : choicea.trim();
+    }
+
+    public String getChoiceb() {
+        return choiceb;
+    }
+
+    public void setChoiceb(String choiceb) {
+        this.choiceb = choiceb == null ? null : choiceb.trim();
     }
 
     public String getAnswer() {

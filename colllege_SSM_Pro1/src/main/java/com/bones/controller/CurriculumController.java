@@ -1,8 +1,9 @@
-package com.example.experiment2.controller;
+package com.bones.controller;
 
-import com.example.experiment2.bean.Msg;
-import com.example.experiment2.bean.StuCurriculum;
-import com.example.experiment2.service.CurriculumService;
+
+import com.bones.pojo.Msg;
+import com.bones.pojo.StuCurriculum;
+import com.bones.service.CurriculumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,14 @@ public class CurriculumController {
 
     @Autowired
     private CurriculumService curriculumService;
+
+    @ResponseBody
+    @RequestMapping("/test")
+    //测试
+    public String test(){
+        System.out.println("执行test");
+        return "OK";
+    }
 
     //获取所有已选课程(学生)
     @ResponseBody

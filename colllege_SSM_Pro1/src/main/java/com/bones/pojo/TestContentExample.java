@@ -174,6 +174,146 @@ public class TestContentExample {
             return (Criteria) this;
         }
 
+        public Criteria andChoiceaIsNull() {
+            addCriterion("choiceA is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaIsNotNull() {
+            addCriterion("choiceA is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaEqualTo(String value) {
+            addCriterion("choiceA =", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaNotEqualTo(String value) {
+            addCriterion("choiceA <>", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaGreaterThan(String value) {
+            addCriterion("choiceA >", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaGreaterThanOrEqualTo(String value) {
+            addCriterion("choiceA >=", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaLessThan(String value) {
+            addCriterion("choiceA <", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaLessThanOrEqualTo(String value) {
+            addCriterion("choiceA <=", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaLike(String value) {
+            addCriterion("choiceA like", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaNotLike(String value) {
+            addCriterion("choiceA not like", value, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaIn(List<String> values) {
+            addCriterion("choiceA in", values, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaNotIn(List<String> values) {
+            addCriterion("choiceA not in", values, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaBetween(String value1, String value2) {
+            addCriterion("choiceA between", value1, value2, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoiceaNotBetween(String value1, String value2) {
+            addCriterion("choiceA not between", value1, value2, "choicea");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebIsNull() {
+            addCriterion("choiceB is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebIsNotNull() {
+            addCriterion("choiceB is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebEqualTo(String value) {
+            addCriterion("choiceB =", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebNotEqualTo(String value) {
+            addCriterion("choiceB <>", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebGreaterThan(String value) {
+            addCriterion("choiceB >", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebGreaterThanOrEqualTo(String value) {
+            addCriterion("choiceB >=", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebLessThan(String value) {
+            addCriterion("choiceB <", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebLessThanOrEqualTo(String value) {
+            addCriterion("choiceB <=", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebLike(String value) {
+            addCriterion("choiceB like", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebNotLike(String value) {
+            addCriterion("choiceB not like", value, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebIn(List<String> values) {
+            addCriterion("choiceB in", values, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebNotIn(List<String> values) {
+            addCriterion("choiceB not in", values, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebBetween(String value1, String value2) {
+            addCriterion("choiceB between", value1, value2, "choiceb");
+            return (Criteria) this;
+        }
+
+        public Criteria andChoicebNotBetween(String value1, String value2) {
+            addCriterion("choiceB not between", value1, value2, "choiceb");
+            return (Criteria) this;
+        }
+
         public Criteria andAnswerIsNull() {
             addCriterion("answer is null");
             return (Criteria) this;

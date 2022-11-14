@@ -1,8 +1,10 @@
-package com.example.experiment2.dao;
+package com.bones.mapper;
 
-import com.example.experiment2.bean.TrainingProgram;
-import com.example.experiment2.bean.TrainingProgramExample;
+
 import java.util.List;
+
+import com.bones.pojo.TrainingProgram;
+import com.bones.pojo.TrainingProgramExample;
 import org.apache.ibatis.annotations.Param;
 
 public interface TrainingProgramMapper {

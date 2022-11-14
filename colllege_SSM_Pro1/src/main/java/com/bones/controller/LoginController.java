@@ -1,7 +1,8 @@
-package com.example.experiment2.controller;
+package com.bones.controller;
 
-import com.example.experiment2.bean.*;
-import com.example.experiment2.service.LoginService;
+
+import com.bones.pojo.*;
+import com.bones.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +44,7 @@ public class LoginController {
     @ResponseBody
     @RequestMapping(value = "/tea",method = RequestMethod.POST)
     public Msg teacherLogin(UTeacher uTea, HttpSession httpSession){
+        System.out.println("teacherLogin");
         UTeacher uTeacher = loginService.getTeacherInfo(uTea.getId());
         if(uTeacher!=null){
             if(uTeacher.getPassword().equals(uTea.getPassword())){

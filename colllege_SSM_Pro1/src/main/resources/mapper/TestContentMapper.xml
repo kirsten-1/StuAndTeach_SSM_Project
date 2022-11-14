@@ -3,6 +3,8 @@
 <mapper namespace="com.bones.mapper.TestContentMapper">
   <resultMap id="BaseResultMap" type="com.bones.pojo.TestContent">
     <result column="question" jdbcType="VARCHAR" property="question" />
+    <result column="choiceA" jdbcType="VARCHAR" property="choicea" />
+    <result column="choiceB" jdbcType="VARCHAR" property="choiceb" />
     <result column="answer" jdbcType="VARCHAR" property="answer" />
     <result column="point" jdbcType="VARCHAR" property="point" />
     <result column="course_id" jdbcType="INTEGER" property="courseId" />
@@ -66,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    question, answer, point, course_id
+    question, choiceA, choiceB, answer, point, course_id
   </sql>
   <select id="selectByExample" parameterType="com.bones.pojo.TestContentExample" resultMap="BaseResultMap">
     select
@@ -89,16 +91,24 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.bones.pojo.TestContent">
-    insert into testcontent (question, answer, point, 
-      course_id)
-    values (#{question,jdbcType=VARCHAR}, #{answer,jdbcType=VARCHAR}, #{point,jdbcType=VARCHAR}, 
-      #{courseId,jdbcType=INTEGER})
+    insert into testcontent (question, choiceA, choiceB, 
+      answer, point, course_id
+      )
+    values (#{question,jdbcType=VARCHAR}, #{choicea,jdbcType=VARCHAR}, #{choiceb,jdbcType=VARCHAR}, 
+      #{answer,jdbcType=VARCHAR}, #{point,jdbcType=VARCHAR}, #{courseId,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.bones.pojo.TestContent">
     insert into testcontent
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="question != null">
         question,
+      </if>
+      <if test="choicea != null">
+        choiceA,
+      </if>
+      <if test="choiceb != null">
+        choiceB,
       </if>
       <if test="answer != null">
         answer,
@@ -113,6 +123,12 @@
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="question != null">
         #{question,jdbcType=VARCHAR},
+      </if>
+      <if test="choicea != null">
+        #{choicea,jdbcType=VARCHAR},
+      </if>
+      <if test="choiceb != null">
+        #{choiceb,jdbcType=VARCHAR},
       </if>
       <if test="answer != null">
         #{answer,jdbcType=VARCHAR},
@@ -137,6 +153,12 @@
       <if test="record.question != null">
         question = #{record.question,jdbcType=VARCHAR},
       </if>
+      <if test="record.choicea != null">
+        choiceA = #{record.choicea,jdbcType=VARCHAR},
+      </if>
+      <if test="record.choiceb != null">
+        choiceB = #{record.choiceb,jdbcType=VARCHAR},
+      </if>
       <if test="record.answer != null">
         answer = #{record.answer,jdbcType=VARCHAR},
       </if>
@@ -154,6 +176,8 @@
   <update id="updateByExample" parameterType="map">
     update testcontent
     set question = #{record.question,jdbcType=VARCHAR},
+      choiceA = #{record.choicea,jdbcType=VARCHAR},
+      choiceB = #{record.choiceb,jdbcType=VARCHAR},
       answer = #{record.answer,jdbcType=VARCHAR},
       point = #{record.point,jdbcType=VARCHAR},
       course_id = #{record.courseId,jdbcType=INTEGER}

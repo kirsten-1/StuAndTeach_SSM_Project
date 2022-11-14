@@ -1,7 +1,7 @@
-package com.example.experiment2.dao;
+package com.bones.mapper;
 
-import com.example.experiment2.bean.ClassInfo;
-import com.example.experiment2.bean.ClassInfoExample;
+import com.bones.pojo.ClassInfo;
+import com.bones.pojo.ClassInfoExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

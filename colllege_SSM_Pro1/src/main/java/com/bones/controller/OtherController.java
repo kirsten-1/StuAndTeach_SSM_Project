@@ -1,7 +1,8 @@
-package com.example.experiment2.controller;
+package com.bones.controller;
 
-import com.example.experiment2.bean.Msg;
-import com.example.experiment2.service.OtherService;
+
+import com.bones.pojo.Msg;
+import com.bones.service.OtherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

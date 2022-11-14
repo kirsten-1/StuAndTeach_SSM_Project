@@ -16,7 +16,7 @@
 <div class="container">
 
     <header>
-        <h1>CAPTITAL NORMAL UNIVERSITY <span>Cultivation management system</span></h1>
+        <h1><span>南京信息工程大学 学生选课及测评系统 </span></h1>
         <nav class="codrops-demos">
             <span>请选择您的<strong>"角色"</strong></span>
             <a href="#to_stu_login" class="current-demo">学生 &nbsp;</a>
@@ -34,7 +34,7 @@
 
                 <div id="stu_login" class="animate form">
                     <form autocomplete="on">
-                        <h1>Log in</h1>
+                        <h1>登录</h1>
                         <p>
                             <label for="stu_ID" class="uname" data-icon="u" > Your user ID </label>
                             <input id="stu_ID" name="id" required="required" type="text" placeholder="my userID"/>
@@ -114,10 +114,11 @@
                 type: "POST",
                 data: $("#stu_login form").serialize(),
                 success: function (result){
+                    //console.log(result)
                     if(result.code==100){
                         window.location.href = "${APP_PATH}/stuIndex";
                     }else {
-                        alert("登录失败，"+result.extend.msg+"！");
+                        alert("登录失败");
                     }
                 }
             });
@@ -139,7 +140,7 @@
                     if(result.code==100){
                         window.location.href = "${APP_PATH}/teaIndex";
                     }else {
-                        alert("登录失败，"+result.extend.msg+"！");
+                        alert("登录失败");
                     }
                 }
             });
@@ -161,7 +162,7 @@
                     if(result.code==100){
                         window.location.href = "${APP_PATH}/secIndex";
                     }else {
-                        alert("登录失败，"+result.extend.msg+"！");
+                        alert("登录失败");
                     }
                 }
             });

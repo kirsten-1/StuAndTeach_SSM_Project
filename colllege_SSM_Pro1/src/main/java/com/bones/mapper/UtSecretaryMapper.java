@@ -1,9 +1,10 @@
-package com.example.experiment2.dao;
+package com.bones.mapper;
 
-import com.example.experiment2.bean.UtSecretary;
-import com.example.experiment2.bean.UtSecretaryExample;
-import java.util.List;
+import com.bones.pojo.UtSecretary;
+import com.bones.pojo.UtSecretaryExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UtSecretaryMapper {
     long countByExample(UtSecretaryExample example);

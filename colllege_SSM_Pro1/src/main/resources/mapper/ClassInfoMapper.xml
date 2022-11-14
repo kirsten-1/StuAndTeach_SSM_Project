@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.experiment2.dao.ClassInfoMapper">
-  <resultMap id="BaseResultMap" type="com.example.experiment2.bean.ClassInfo">
+<mapper namespace="com.bones.mapper.ClassInfoMapper">
+  <resultMap id="BaseResultMap" type="com.bones.pojo.ClassInfo">
     <id column="class_name" jdbcType="VARCHAR" property="className" />
     <result column="student_num" jdbcType="INTEGER" property="studentNum" />
     <result column="monitor" jdbcType="VARCHAR" property="monitor" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     class_name, student_num, monitor, study_committee, life_committee
   </sql>
-  <select id="selectByExample" parameterType="com.example.experiment2.bean.ClassInfoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.bones.pojo.ClassInfoExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,19 +93,19 @@
     delete from class_info
     where class_name = #{className,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.experiment2.bean.ClassInfoExample">
+  <delete id="deleteByExample" parameterType="com.bones.pojo.ClassInfoExample">
     delete from class_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.experiment2.bean.ClassInfo">
+  <insert id="insert" parameterType="com.bones.pojo.ClassInfo">
     insert into class_info (class_name, student_num, monitor, 
       study_committee, life_committee)
     values (#{className,jdbcType=VARCHAR}, #{studentNum,jdbcType=INTEGER}, #{monitor,jdbcType=VARCHAR}, 
       #{studyCommittee,jdbcType=VARCHAR}, #{lifeCommittee,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.experiment2.bean.ClassInfo">
+  <insert id="insertSelective" parameterType="com.bones.pojo.ClassInfo">
     insert into class_info
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="className != null">
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.experiment2.bean.ClassInfoExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.bones.pojo.ClassInfoExample" resultType="java.lang.Long">
     select count(*) from class_info
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.experiment2.bean.ClassInfo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.bones.pojo.ClassInfo">
     update class_info
     <set>
       <if test="studentNum != null">
@@ -200,7 +200,7 @@
     </set>
     where class_name = #{className,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.experiment2.bean.ClassInfo">
+  <update id="updateByPrimaryKey" parameterType="com.bones.pojo.ClassInfo">
     update class_info
     set student_num = #{studentNum,jdbcType=INTEGER},
       monitor = #{monitor,jdbcType=VARCHAR},

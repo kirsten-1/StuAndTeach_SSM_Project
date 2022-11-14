@@ -1,4 +1,4 @@
-package com.example.experiment2.filter;
+package com.bones.filter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

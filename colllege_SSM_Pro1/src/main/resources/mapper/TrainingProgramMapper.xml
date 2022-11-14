@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.experiment2.dao.TrainingProgramMapper">
-  <resultMap id="BaseResultMap" type="com.example.experiment2.bean.TrainingProgram">
+<mapper namespace="com.bones.mapper.TrainingProgramMapper">
+  <resultMap id="BaseResultMap" type="com.bones.pojo.TrainingProgram">
     <id column="course_id" jdbcType="INTEGER" property="courseId" />
     <result column="course_name" jdbcType="VARCHAR" property="courseName" />
     <result column="course_nature" jdbcType="VARCHAR" property="courseNature" />
@@ -73,7 +73,7 @@
     course_id, course_name, course_nature, course_major, course_teacher, course_attributes, 
     preliminary_course, followup_course
   </sql>
-  <select id="selectByExample" parameterType="com.example.experiment2.bean.TrainingProgramExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.bones.pojo.TrainingProgramExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -97,13 +97,13 @@
     delete from training_program
     where course_id = #{courseId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.experiment2.bean.TrainingProgramExample">
+  <delete id="deleteByExample" parameterType="com.bones.pojo.TrainingProgramExample">
     delete from training_program
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.experiment2.bean.TrainingProgram">
+  <insert id="insert" parameterType="com.bones.pojo.TrainingProgram">
     insert into training_program (course_id, course_name, course_nature, 
       course_major, course_teacher, course_attributes, 
       preliminary_course, followup_course)
@@ -111,7 +111,7 @@
       #{courseMajor,jdbcType=VARCHAR}, #{courseTeacher,jdbcType=VARCHAR}, #{courseAttributes,jdbcType=VARCHAR}, 
       #{preliminaryCourse,jdbcType=VARCHAR}, #{followupCourse,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.experiment2.bean.TrainingProgram">
+  <insert id="insertSelective" parameterType="com.bones.pojo.TrainingProgram">
     insert into training_program
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="courseId != null">
@@ -166,7 +166,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.experiment2.bean.TrainingProgramExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.bones.pojo.TrainingProgramExample" resultType="java.lang.Long">
     select count(*) from training_program
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -218,7 +218,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.experiment2.bean.TrainingProgram">
+  <update id="updateByPrimaryKeySelective" parameterType="com.bones.pojo.TrainingProgram">
     update training_program
     <set>
       <if test="courseName != null">
@@ -245,7 +245,7 @@
     </set>
     where course_id = #{courseId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.experiment2.bean.TrainingProgram">
+  <update id="updateByPrimaryKey" parameterType="com.bones.pojo.TrainingProgram">
     update training_program
     set course_name = #{courseName,jdbcType=VARCHAR},
       course_nature = #{courseNature,jdbcType=VARCHAR},

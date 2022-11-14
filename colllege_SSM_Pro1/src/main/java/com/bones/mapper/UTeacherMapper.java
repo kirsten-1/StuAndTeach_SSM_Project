@@ -1,9 +1,11 @@
-package com.example.experiment2.dao;
+package com.bones.mapper;
 
-import com.example.experiment2.bean.UTeacher;
-import com.example.experiment2.bean.UTeacherExample;
-import java.util.List;
+
+import com.bones.pojo.UTeacher;
+import com.bones.pojo.UTeacherExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UTeacherMapper {
     long countByExample(UTeacherExample example);

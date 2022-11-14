@@ -1,4 +1,4 @@
-package com.example.experiment2.bean;
+package com.bones.pojo;
 
 import java.util.ArrayList;
 import java.util.Date;

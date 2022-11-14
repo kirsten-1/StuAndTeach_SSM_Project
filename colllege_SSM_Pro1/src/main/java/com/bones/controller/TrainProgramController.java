@@ -1,11 +1,12 @@
-package com.example.experiment2.controller;
+package com.bones.controller;
 
-import com.example.experiment2.bean.Msg;
-import com.example.experiment2.bean.StuCurriculum;
-import com.example.experiment2.bean.Student;
-import com.example.experiment2.bean.TrainingProgram;
-import com.example.experiment2.service.CurriculumService;
-import com.example.experiment2.service.TrainingProgramService;
+
+import com.bones.pojo.Msg;
+import com.bones.pojo.StuCurriculum;
+import com.bones.pojo.Student;
+import com.bones.pojo.TrainingProgram;
+import com.bones.service.CurriculumService;
+import com.bones.service.TrainingProgramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -31,7 +32,7 @@ public class TrainProgramController {
     //根据专业获取培养方案
     @ResponseBody
     @RequestMapping(value = "/train/{major}",method = RequestMethod.GET)
-    public Msg getTrainProgramByMajor(@PathVariable("major") String major,HttpSession session){
+    public Msg getTrainProgramByMajor(@PathVariable("major") String major, HttpSession session){
         List<TrainingProgram> trainingPrograms = trainingProgramService.getTrainProgramByMajor(major);
         Student student = (Student) session.getAttribute("user");
         List<StuCurriculum> allSelectedCourse = curriculumService.getAllSelectedCourseById(student.getId());

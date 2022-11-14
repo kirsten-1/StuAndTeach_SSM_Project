@@ -1,13 +1,14 @@
-package com.example.experiment2.service;
+package com.bones.service;
 
-import com.example.experiment2.bean.Student;
-import com.example.experiment2.bean.UStudent;
-import com.example.experiment2.bean.UTeacher;
-import com.example.experiment2.bean.UtSecretary;
-import com.example.experiment2.dao.StudentMapper;
-import com.example.experiment2.dao.UStudentMapper;
-import com.example.experiment2.dao.UTeacherMapper;
-import com.example.experiment2.dao.UtSecretaryMapper;
+
+import com.bones.mapper.StudentMapper;
+import com.bones.mapper.UStudentMapper;
+import com.bones.mapper.UTeacherMapper;
+import com.bones.mapper.UtSecretaryMapper;
+import com.bones.pojo.Student;
+import com.bones.pojo.UStudent;
+import com.bones.pojo.UTeacher;
+import com.bones.pojo.UtSecretary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
