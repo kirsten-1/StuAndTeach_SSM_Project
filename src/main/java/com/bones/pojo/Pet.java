@@ -1,2 +1,15 @@
-package com.bones.pojo;public class Pet {
+package com.bones.pojo;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Pet implements Serializable {
+    private String petName;
+    private String petType;
 }

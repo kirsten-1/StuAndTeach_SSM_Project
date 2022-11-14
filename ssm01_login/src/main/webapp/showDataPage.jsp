@@ -7,10 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+<head>
+    <title>Title</title>
+</head>
+<body>
+
+<p>
+    requestScope message:  ${requestScope.message} uname1:${requestScope.allUser[0].uname}
+</p>
+<p>
+    sessionScope message:  ${sessionScope.message} uname1:${sessionScope.allUser[1].uname}
+</p>
+<p>
+    applicationScope message:  ${applicationScope.message} uname1:${applicationScope.allUser[0].uname}
+</p>
+</body>
 </html>

@@ -1,2 +1,7 @@
-package com.bones.service;public class PlayerService {
+package com.bones.service;
+
+import com.bones.pojo.Player;
+
+public interface PlayerService {
+    int addPlayer(Player player);
 }
